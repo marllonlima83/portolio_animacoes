@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tipos de Animação — Márlon Lima</title>
+<style>
+:root{--bg:#f6f7fb;--surface:#fff;--text:#161922;--muted:#687083;--line:#e8eaf0;--accent:#6657e8;--shadow:0 12px 36px rgba(24,28,45,.08)}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:var(--bg)}
+.container{width:min(1180px,calc(100% - 36px));margin:auto}
+.hero{margin:32px auto 26px;border-radius:30px;overflow:hidden;box-shadow:var(--shadow);background:#071d3b}
+.hero img{display:block;width:100%;height:auto}
+main{padding-bottom:70px} .level{margin:24px 0;padding:30px;border:1px solid var(--line);border-radius:30px;background:var(--surface);box-shadow:var(--shadow)}
+.level-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px} h2{margin:0;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-.03em}
+.badge{padding:7px 11px;border-radius:999px;background:#efedff;color:var(--accent);font-size:.76rem;font-weight:800;text-transform:uppercase;white-space:nowrap}
+.premium .badge{background:#fff7df;color:#8a6418}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px} .grid.three{grid-template-columns:repeat(3,minmax(0,1fr))} .grid.one{grid-template-columns:minmax(0,760px)}
+.video-card{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#fff}
+.video-wrap{display:block;width:100%;height:auto;border:0;padding:0;margin:0;cursor:pointer;position:relative;aspect-ratio:16/9;overflow:hidden;background:#111;appearance:none;-webkit-appearance:none}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .25s ease} .video-wrap:hover img{transform:scale(1.025)}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:68px;height:48px;border-radius:14px;display:grid;place-items:center;background:rgba(15,15,18,.82);color:#fff;font-size:21px;padding-left:3px}
+.video-info{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 16px} .video-info a{color:var(--accent);font-size:.84rem;font-weight:700;text-decoration:none}
+footer{padding:0 0 38px;text-align:center;color:var(--muted);font-size:.86rem}
+@media(max-width:850px){.grid,.grid.three{grid-template-columns:1fr}.grid.one{grid-template-columns:1fr}.level{padding:22px}}
+@media(max-width:520px){.container{width:min(100% - 24px,1180px)}.hero{margin-top:18px;border-radius:22px}.level-head{align-items:flex-start;flex-direction:column}.video-info{align-items:flex-start;flex-direction:column}}
+
+.level-description{margin:-8px 0 22px;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#fff,rgba(248,249,255,.92));box-shadow:0 8px 24px rgba(25,32,56,.055)}
+.level-description h3{margin:0 0 8px;font-size:1.08rem;line-height:1.3;color:var(--text)}
+.level-description .intro{margin:0 0 15px;color:var(--muted);line-height:1.62;font-size:.94rem}
+.level-description .intro strong{color:var(--text)}
+.level-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px;margin:0;padding:0;list-style:none}
+.level-specs li{position:relative;padding-left:16px;color:var(--text);font-size:.88rem;line-height:1.48}
+.level-specs li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+@media(max-width:700px){.level-description{padding:18px}.level-specs{grid-template-columns:1fr}}
+
+
+.closing-section{margin:34px 0 26px;padding:34px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,#fff 0%,#f7f7fc 100%);box-shadow:var(--shadow)}
+.closing-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:22px}
+.closing-card{padding:26px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.82)}
+.closing-card h2{margin:0 0 14px;font-size:1.28rem;line-height:1.25;letter-spacing:-.02em}
+.closing-card p{margin:0;color:var(--muted);font-size:.94rem;line-height:1.72}.closing-card p+p{margin-top:14px}.closing-card strong{color:var(--text)}
+.closing-accent{width:42px;height:4px;border-radius:999px;background:var(--accent);margin-bottom:18px}
+.closing-note{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:.82rem}
+@media(max-width:800px){.closing-section{padding:22px}.closing-grid{grid-template-columns:1fr}.closing-card{padding:22px}}
+
+
+.contact-bar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 24px;padding:18px 22px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.92);box-shadow:0 8px 24px rgba(24,28,45,.06)}
+.contact-label{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.contact-icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#efedff;color:var(--accent);font-size:1rem}
+.contact-bar a{color:var(--text);font-size:1rem;font-weight:700;text-decoration:none;transition:color .2s ease}.contact-bar a:hover{color:var(--accent)}
+@media(max-width:600px){.contact-bar{align-items:flex-start;flex-direction:column;gap:10px;padding:17px 18px}}
+
+</style></head>
+<body>
+<header class="hero container"><img src="topo.png" alt="Márlon Lima — Designer Multimídia"></header>
+<main class="container">
+<section class="contact-bar" aria-label="Contato"><div class="contact-label"><span class="contact-icon" aria-hidden="true">✉</span><span>Contato</span></div><a href="mailto:marllonlima@gmail.com">marllonlima@gmail.com</a></section><section class="level">
+<div class="level-head"><h2>Animação Nível 1</h2><span class="badge" style="color:#20B2AA">Nível 1</span></div>
+<div class="level-description"><h3>Comunicação Direta e Essencial</h3><p class="intro"><strong>Objetividade que gera resultados.</strong> Transmita sua mensagem sem rodeios. Ideal para comunicados internos, pílulas de conhecimento e infográficos rápidos. Uma solução ágil e de alto impacto que entrega clareza visual, garantindo que a informação crucial chegue ao seu time de forma rápida, padronizada e eficiente.</p><ul class="level-specs"><li>Ilustrações 2D simples, animações com ilustrações estáticas.</li><li>Tempo: até 3 minutos</li><li>Trilha sonora original, narração e dublagens (até 2 vozes) inclusas.</li><li>Cenas: até 12.</li><li>Vinheta: não inclusa.</li></ul></div>
+<div class="grid "><article class="video-card">
+<button class="video-wrap" type="button" data-video="5qaawAw2pkA" aria-label="Assistir Animação Nível 1 — Exemplo 1 no YouTube"><img src="https://i.ytimg.com/vi/5qaawAw2pkA/hqdefault.jpg" alt="Miniatura de Animação Nível 1 — Exemplo 1" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 1</strong><a href="https://www.youtube.com/watch?v=5qaawAw2pkA" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article><article class="video-card">
+<button class="video-wrap" type="button" data-video="sjcu7XwSLPY" aria-label="Assistir Animação Nível 1 — Exemplo 2 no YouTube"><img src="https://i.ytimg.com/vi/sjcu7XwSLPY/hqdefault.jpg" alt="Miniatura de Animação Nível 1 — Exemplo 2" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 2</strong><a href="https://www.youtube.com/watch?v=sjcu7XwSLPY" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level">
+<div class="level-head"><h2>Animação Nível 2</h2><span class="badge">Nível 2</span></div>
+<div class="level-description"><h3>Síntese de Dados e Construção Lógica</h3><p class="intro"><strong>Transforme complexidade em clareza absoluta.</strong> Desenvolvido com ilustrações exclusivas que se constroem progressivamente na tela. A ferramenta perfeita para decodificar fluxos de processos, dashboards de dados e conceitos técnicos passo a passo. Garante retenção máxima de atenção para informações corporativas densas.</p><ul class="level-specs"><li>Ilustrações 2D, desenho a traço, estilo esboço, animações com ilustrações estáticas, estilo dashboard (painel de dados).</li><li>Tempo: até 3 minutos</li><li>Trilha sonora original, narração inclusa.</li><li>Cenas: até 10.</li><li>Vinheta: não inclusa.</li></ul></div>
+<div class="grid three"><article class="video-card">
+<button class="video-wrap" type="button" data-video="6nLlSTdpDYQ" aria-label="Assistir Animação Nível 2 — Exemplo 1 no YouTube"><img src="https://i.ytimg.com/vi/6nLlSTdpDYQ/hqdefault.jpg" alt="Miniatura de Animação Nível 2 — Exemplo 1" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 1</strong><a href="https://www.youtube.com/watch?v=6nLlSTdpDYQ" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article><article class="video-card">
+<button class="video-wrap" type="button" data-video="7E6L-ehP8Pc" aria-label="Assistir Animação Nível 2 — Exemplo 2 no YouTube"><img src="https://i.ytimg.com/vi/7E6L-ehP8Pc/hqdefault.jpg" alt="Miniatura de Animação Nível 2 — Exemplo 2" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 2</strong><a href="https://www.youtube.com/watch?v=7E6L-ehP8Pc" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article><article class="video-card">
+<button class="video-wrap" type="button" data-video="8U88302JiUE" aria-label="Assistir Animação Nível 2 — Exemplo 3 no YouTube"><img src="https://i.ytimg.com/vi/8U88302JiUE/hqdefault.jpg" alt="Miniatura de Animação Nível 2 — Exemplo 3" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 3</strong><a href="https://www.youtube.com/watch?v=8U88302JiUE" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level">
+<div class="level-head"><h2>Animação Nível 3</h2><span class="badge" style="color:#B8860B">Nível 3</span></div>
+<div class="level-description"><h3>Treinamento e Engajamento</h3><p class="intro"><strong>O equilíbrio perfeito para a capacitação do seu time.</strong> Com um nível médio de detalhamento artístico e até duas vozes para conduzir a narrativa, esta é a escolha estratégica para módulos de onboarding e trilhas de aprendizagem. Mantém o espectador engajado e absorvendo o conteúdo do início ao fim.</p><ul class="level-specs"><li>Ilustrações 2D (possibilidade de mistura de técnicas) nível médio de detalhes, animações com ilustrações estáticas.</li><li>Tempo: até 3 minutos</li><li>Trilha sonora original, narração e dublagens (até 2 vozes) inclusas.</li><li>Cenas: até 12.</li><li>Vinheta: não inclusa.</li></ul></div>
+<div class="grid "><article class="video-card">
+<button class="video-wrap" type="button" data-video="ioAg5XFbl_0" aria-label="Assistir Animação Nível 3 — Exemplo no YouTube"><img src="https://i.ytimg.com/vi/ioAg5XFbl_0/hqdefault.jpg" alt="Miniatura de Animação Nível 3 — Exemplo" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 1</strong><a href="https://www.youtube.com/watch?v=ioAg5XFbl_0" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article><article class="video-card">
+<button class="video-wrap" type="button" data-video="yK7Ef_e1kFQ" aria-label="Assistir Animação Nível 3 — Exemplo 2 no YouTube"><img src="https://i.ytimg.com/vi/yK7Ef_e1kFQ/hqdefault.jpg" alt="Miniatura de Animação Nível 3 — Exemplo 2" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 2</strong><a href="https://youtu.be/yK7Ef_e1kFQ?si=Gr4hFdS5T5wI5jqY" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level">
+<div class="level-head"><h2>Animação Tipo 4</h2><span class="badge" style="color:#8B008B">Tipo 4</span></div>
+<div class="level-description"><h3>Dinamismo Visual e Fluidez</h3><p class="intro"><strong>Dê vida ativa à sua comunicação corporativa.</strong> Rompendo a monotonia dos treinamentos tradicionais, este nível introduz ilustrações animadas de forma fluida e dinâmica. Ideal para apresentações institucionais e lançamento de diretrizes que exigem movimento contínuo para reter o foco de equipes exigentes.</p><ul class="level-specs"><li>Ilustrações 2D (possibilidade de mistura de técnicas) nível médio de detalhes.</li><li>Ilustrações animadas de forma simples.</li><li>Tempo: até 3 minutos</li><li>Trilha sonora original, narração e dublagens (até 2 vozes) inclusas.</li><li>Cenas: até 10.</li><li>Vinheta: não inclusa.</li></ul></div>
+<div class="grid "><article class="video-card">
+<button class="video-wrap" type="button" data-video="IImiWvwQiFY" aria-label="Assistir Animação Tipo 4 — Exemplo 1 no YouTube"><img src="https://i.ytimg.com/vi/IImiWvwQiFY/hqdefault.jpg" alt="Miniatura de Animação Tipo 4 — Exemplo 1" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 1</strong><a href="https://www.youtube.com/watch?v=IImiWvwQiFY" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article><article class="video-card">
+<button class="video-wrap" type="button" data-video="bqagEGr0z6c" aria-label="Assistir Animação Tipo 4 — Exemplo 2 no YouTube"><img src="https://i.ytimg.com/vi/bqagEGr0z6c/hqdefault.jpg" alt="Miniatura de Animação Tipo 4 — Exemplo 2" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 2</strong><a href="https://www.youtube.com/watch?v=bqagEGr0z6c" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level premium">
+<div class="level-head"><h2>Animação Tipo 5</h2><span class="badge">Premium</span></div>
+<div class="level-description"><h3>Imersão e Identidade Corporativa</h3><p class="intro"><strong>Eleve o padrão visual da sua marca.</strong> Com design corporativo moderno, cores elaboradas e sombras suaves, este pacote traz animações sofisticadas e até 3 vozes profissionais. É a solução definitiva para estudos de caso envolventes, campanhas de endomarketing de alto impacto e simulações de atendimento.</p><ul class="level-specs"><li>Ilustrações 2D, cores planas, sombras suaves e discretas, estilo corporativo moderno (possibilidade de mistura de técnicas) nível médio de detalhes.</li><li>Ilustrações com animações elaboradas.</li><li>Tempo: até 3 minutos</li><li>Trilha sonora original, narração e dublagens (até 3 vozes) inclusas.</li><li>Cenas: até 10.</li><li>Vinheta: não inclusa.</li></ul></div>
+<div class="grid one"><article class="video-card">
+<button class="video-wrap" type="button" data-video="9g1q3qOzHs0" aria-label="Assistir Animação Tipo 5 — Premium no YouTube"><img src="https://i.ytimg.com/vi/9g1q3qOzHs0/hqdefault.jpg" alt="Miniatura de Animação Tipo 5 — Premium" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Premium</strong><a href="https://www.youtube.com/watch?v=9g1q3qOzHs0" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level premium">
+<div class="level-head"><h2>Animação Tipo 6</h2><span class="badge">Premium</span></div>
+<div class="level-description"><h3>Realismo e Profundidade</h3><p class="intro"><strong>Para mensagens que exigem peso e credibilidade.</strong> Entregando ilustrações de alto realismo, sombreamento marcante e até 4 vozes inclusas, criamos simulações e dramatizações densas. Desenvolvido sob medida para treinamentos comportamentais complexos, compliance e situações críticas de tomada de decisão.</p><ul class="level-specs"><li>Ilustrações com grande nível de detalhes e realismo, sombreamento marcante, cores elaboradas, estilo corporativo moderno (possibilidade de mistura de técnicas) nível alto de detalhes.</li><li>Ilustrações com animações próximas do realismo.</li><li>Tempo: até 3 minutos</li><li>Trilha sonora original, narração e dublagens (até 4 vozes) inclusas.</li><li>Cenas: até 10.</li><li>Vinheta: não inclusa.</li></ul></div>
+<div class="grid one"><article class="video-card">
+<button class="video-wrap" type="button" data-video="bdpBFnd2yd0" aria-label="Assistir Animação Tipo 6 — Premium no YouTube"><img src="https://i.ytimg.com/vi/bdpBFnd2yd0/hqdefault.jpg" alt="Miniatura de Animação Tipo 6 — Premium" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Premium</strong><a href="https://www.youtube.com/watch?v=bdpBFnd2yd0" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level premium">
+<div class="level-head"><h2>Animação Tipo 7</h2><span class="badge" style="color:#32CD32">Premium Plus</span></div>
+<div class="level-description"><h3>A Experiência Definitiva</h3><p class="intro"><strong>O ápice do storytelling e da imersão corporativa.</strong> Arte com padrão profissional de excelência, altíssimo realismo e até 5 vozes com sincronia labial. Seus personagens ganham vida com atuações autênticas. A escolha exata para humanização profunda, capacitações de liderança e vivências onde cada nuance emocional importa.</p><ul class="level-specs"><li>Ilustrações com alto nível de detalhes e realismo, sombreamento marcante, cores elaboradas, estilo corporativo moderno (possibilidade de mistura de técnicas) nível profissional de detalhes.</li><li>Ilustrações com animações elaboradas, muito próximas do realismo.</li><li>Tempo: até 3 minutos</li><li>Trilha sonora original, narração e dublagens (até 5 vozes) inclusas e com possibilidade de sincronia labial com os personagens.</li><li>Cenas: até 10.</li><li>Vinheta: não inclusa.</li></ul></div>
+<div class="grid one"><article class="video-card">
+<button class="video-wrap" type="button" data-video="FQqUrt80bSQ" aria-label="Assistir Animação Tipo 7 — Premium Plus no YouTube"><img src="https://i.ytimg.com/vi/FQqUrt80bSQ/hqdefault.jpg" alt="Miniatura de Animação Tipo 7 — Premium Plus" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Premium Plus</strong><a href="https://www.youtube.com/watch?v=FQqUrt80bSQ" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="closing-section" aria-label="Informações adicionais sobre produção"><div class="closing-grid">
+<article class="closing-card"><div class="closing-accent" aria-hidden="true"></div><h2>Produção de Vinhetas <span style="font-weight:500;color:var(--muted)">(Serviço Opcional)</span></h2><p>Para reforçar a identidade visual da sua marca desde o primeiro segundo, desenvolvemos vinhetas personalizadas e de alto impacto, comercializadas de forma independente. Caso você contrate a criação de uma vinheta conosco — ou caso a sua empresa já possua uma —, a integração desse material ao seu projeto principal é realizada durante a etapa de pós-produção, sem nenhum custo adicional ao pacote de animação contratado.</p></article>
+<article class="closing-card"><div class="closing-accent" aria-hidden="true"></div><h2>Exclusividade, Direitos Autorais e Tecnologia de Ponta</h2><p>Para entregar o mais alto padrão de excelência e personalização, a direção de arte dos nossos projetos utiliza engenharia avançada de múltiplas Inteligências Artificiais de nível profissional. Esse processo rigoroso de pesquisa, curadoria e geração garante que cada ilustração seja <strong>100% exclusiva e totalmente livre de restrições de direitos autorais (copyright)</strong>, conferindo segurança jurídica e originalidade absoluta ao material da sua empresa.</p><p>No design sonoro, unimos o melhor da inovação tecnológica com a sensibilidade humana. A narração principal é conduzida por um <strong>ator de voz profissional</strong>, garantindo empatia, clareza e uma conexão autêntica com o seu público. Para diálogos e personagens secundários, utilizamos dublagens geradas por IAs de última geração, que atingem um nível surpreendente de realismo e asseguram que a identidade vocal do seu projeto seja única e sob medida.</p></article>
+</div><div class="closing-note">Soluções audiovisuais desenvolvidas de acordo com as necessidades de cada projeto.</div></section>
+</main>
+<footer class="container">Portfólio de tipos de animação</footer>
+<script>
+document.querySelectorAll('.video-wrap[data-video]').forEach(function(card){
+  card.addEventListener('click', function(){
+    var id = this.dataset.video;
+    var label = this.getAttribute('aria-label');
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&playsinline=1&rel=0';
+    iframe.title = label;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    iframe.style.position = 'absolute';
+    iframe.style.inset = '0';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = '0';
+
+    /* Mantém o contêiner 16:9 e troca apenas seu conteúdo. */
+    this.innerHTML = '';
+    this.appendChild(iframe);
+    this.style.cursor = 'default';
+  }, {once:true});
+});
+</script></body></html>
