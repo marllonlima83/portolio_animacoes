@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tipos de Animação — Márlon Lima</title>
+<style>
+:root{--bg:#f6f7fb;--surface:#fff;--text:#161922;--muted:#687083;--line:#e8eaf0;--accent:#6657e8;--shadow:0 12px 36px rgba(24,28,45,.08)}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:var(--bg)}
+.container{width:min(1180px,calc(100% - 36px));margin:auto}
+.hero{margin:32px auto 26px;border-radius:30px;overflow:hidden;box-shadow:var(--shadow);background:#071d3b}
+.hero img{display:block;width:100%;height:auto}
+main{padding-bottom:70px} .level{margin:24px 0;padding:30px;border:1px solid var(--line);border-radius:30px;background:var(--surface);box-shadow:var(--shadow)}
+.level-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px} h2{margin:0;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-.03em}
+.badge{padding:7px 11px;border-radius:999px;background:#efedff;color:var(--accent);font-size:.76rem;font-weight:800;text-transform:uppercase;white-space:nowrap}
+.premium .badge{background:#fff7df;color:#8a6418}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px} .grid.three{grid-template-columns:repeat(3,minmax(0,1fr))} .grid.one{grid-template-columns:minmax(0,760px)}
+.video-card{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#fff}
+.video-wrap{display:block;width:100%;height:auto;border:0;padding:0;margin:0;cursor:pointer;position:relative;aspect-ratio:16/9;overflow:hidden;background:#111;appearance:none;-webkit-appearance:none}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .25s ease} .video-wrap:hover img{transform:scale(1.025)}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:68px;height:48px;border-radius:14px;display:grid;place-items:center;background:rgba(15,15,18,.82);color:#fff;font-size:21px;padding-left:3px}
+.video-info{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 16px} .video-info a{color:var(--accent);font-size:.84rem;font-weight:700;text-decoration:none}
+footer{padding:0 0 38px;text-align:center;color:var(--muted);font-size:.86rem}
+@media(max-width:850px){.grid,.grid.three{grid-template-columns:1fr}.grid.one{grid-template-columns:1fr}.level{padding:22px}}
+@media(max-width:520px){.container{width:min(100% - 24px,1180px)}.hero{margin-top:18px;border-radius:22px}.level-head{align-items:flex-start;flex-direction:column}.video-info{align-items:flex-start;flex-direction:column}}
+</style></head>
+<body>
+<header class="hero container"><img src="topo.png" alt="Márlon Lima — Designer Multimídia"></header>
+<main class="container"><section class="level">
+<div class="level-head"><h2>Animação Nível 1</h2><span class="badge" style="color:#20B2AA">Nível 1</span></div>
+<div class="grid "><article class="video-card">
+<button class="video-wrap" type="button" data-video="5qaawAw2pkA" aria-label="Assistir Animação Nível 1 — Exemplo 1 no YouTube"><img src="https://i.ytimg.com/vi/5qaawAw2pkA/hqdefault.jpg" alt="Miniatura de Animação Nível 1 — Exemplo 1" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 1</strong><a href="https://www.youtube.com/watch?v=5qaawAw2pkA" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article><article class="video-card">
+<button class="video-wrap" type="button" data-video="sjcu7XwSLPY" aria-label="Assistir Animação Nível 1 — Exemplo 2 no YouTube"><img src="https://i.ytimg.com/vi/sjcu7XwSLPY/hqdefault.jpg" alt="Miniatura de Animação Nível 1 — Exemplo 2" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 2</strong><a href="https://www.youtube.com/watch?v=sjcu7XwSLPY" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level">
+<div class="level-head"><h2>Animação Nível 2</h2><span class="badge">Nível 2</span></div>
+<div class="grid three"><article class="video-card">
+<button class="video-wrap" type="button" data-video="6nLlSTdpDYQ" aria-label="Assistir Animação Nível 2 — Exemplo 1 no YouTube"><img src="https://i.ytimg.com/vi/6nLlSTdpDYQ/hqdefault.jpg" alt="Miniatura de Animação Nível 2 — Exemplo 1" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 1</strong><a href="https://www.youtube.com/watch?v=6nLlSTdpDYQ" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article><article class="video-card">
+<button class="video-wrap" type="button" data-video="7E6L-ehP8Pc" aria-label="Assistir Animação Nível 2 — Exemplo 2 no YouTube"><img src="https://i.ytimg.com/vi/7E6L-ehP8Pc/hqdefault.jpg" alt="Miniatura de Animação Nível 2 — Exemplo 2" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 2</strong><a href="https://www.youtube.com/watch?v=7E6L-ehP8Pc" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article><article class="video-card">
+<button class="video-wrap" type="button" data-video="8U88302JiUE" aria-label="Assistir Animação Nível 2 — Exemplo 3 no YouTube"><img src="https://i.ytimg.com/vi/8U88302JiUE/hqdefault.jpg" alt="Miniatura de Animação Nível 2 — Exemplo 3" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 3</strong><a href="https://www.youtube.com/watch?v=8U88302JiUE" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level">
+<div class="level-head"><h2>Animação Nível 3</h2><span class="badge" style="color:#B8860B">Nível 3</span></div>
+<div class="grid "><article class="video-card">
+<button class="video-wrap" type="button" data-video="ioAg5XFbl_0" aria-label="Assistir Animação Nível 3 — Exemplo no YouTube"><img src="https://i.ytimg.com/vi/ioAg5XFbl_0/hqdefault.jpg" alt="Miniatura de Animação Nível 3 — Exemplo" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 1</strong><a href="https://www.youtube.com/watch?v=ioAg5XFbl_0" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article><article class="video-card">
+<button class="video-wrap" type="button" data-video="yK7Ef_e1kFQ" aria-label="Assistir Animação Nível 3 — Exemplo 2 no YouTube"><img src="https://i.ytimg.com/vi/yK7Ef_e1kFQ/hqdefault.jpg" alt="Miniatura de Animação Nível 3 — Exemplo 2" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 2</strong><a href="https://youtu.be/yK7Ef_e1kFQ?si=Gr4hFdS5T5wI5jqY" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level">
+<div class="level-head"><h2>Animação Tipo 4</h2><span class="badge" style="color:#8B008B">Tipo 4</span></div>
+<div class="grid "><article class="video-card">
+<button class="video-wrap" type="button" data-video="IImiWvwQiFY" aria-label="Assistir Animação Tipo 4 — Exemplo 1 no YouTube"><img src="https://i.ytimg.com/vi/IImiWvwQiFY/hqdefault.jpg" alt="Miniatura de Animação Tipo 4 — Exemplo 1" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 1</strong><a href="https://www.youtube.com/watch?v=IImiWvwQiFY" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article><article class="video-card">
+<button class="video-wrap" type="button" data-video="bqagEGr0z6c" aria-label="Assistir Animação Tipo 4 — Exemplo 2 no YouTube"><img src="https://i.ytimg.com/vi/bqagEGr0z6c/hqdefault.jpg" alt="Miniatura de Animação Tipo 4 — Exemplo 2" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Exemplo 2</strong><a href="https://www.youtube.com/watch?v=bqagEGr0z6c" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level premium">
+<div class="level-head"><h2>Animação Tipo 5</h2><span class="badge">Premium</span></div>
+<div class="grid one"><article class="video-card">
+<button class="video-wrap" type="button" data-video="9g1q3qOzHs0" aria-label="Assistir Animação Tipo 5 — Premium no YouTube"><img src="https://i.ytimg.com/vi/9g1q3qOzHs0/hqdefault.jpg" alt="Miniatura de Animação Tipo 5 — Premium" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Premium</strong><a href="https://www.youtube.com/watch?v=9g1q3qOzHs0" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level premium">
+<div class="level-head"><h2>Animação Tipo 6</h2><span class="badge">Premium</span></div>
+<div class="grid one"><article class="video-card">
+<button class="video-wrap" type="button" data-video="bdpBFnd2yd0" aria-label="Assistir Animação Tipo 6 — Premium no YouTube"><img src="https://i.ytimg.com/vi/bdpBFnd2yd0/hqdefault.jpg" alt="Miniatura de Animação Tipo 6 — Premium" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Premium</strong><a href="https://www.youtube.com/watch?v=bdpBFnd2yd0" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section><section class="level premium">
+<div class="level-head"><h2>Animação Tipo 7</h2><span class="badge" style="color:#32CD32">Premium Plus</span></div>
+<div class="grid one"><article class="video-card">
+<button class="video-wrap" type="button" data-video="FQqUrt80bSQ" aria-label="Assistir Animação Tipo 7 — Premium Plus no YouTube"><img src="https://i.ytimg.com/vi/FQqUrt80bSQ/hqdefault.jpg" alt="Miniatura de Animação Tipo 7 — Premium Plus" loading="lazy"><span class="play" aria-hidden="true">▶</span></button>
+<div class="video-info"><strong>Premium Plus</strong><a href="https://www.youtube.com/watch?v=FQqUrt80bSQ" target="_blank" rel="noopener">Ver no YouTube ↗</a></div>
+</article></div>
+</section></main>
+<footer class="container">Portfólio de tipos de animação</footer>
+<script>
+document.querySelectorAll('.video-wrap[data-video]').forEach(function(card){
+  card.addEventListener('click', function(){
+    var id = this.dataset.video;
+    var label = this.getAttribute('aria-label');
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&playsinline=1&rel=0';
+    iframe.title = label;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    iframe.style.position = 'absolute';
+    iframe.style.inset = '0';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = '0';
+
+    /* Mantém o contêiner 16:9 e troca apenas seu conteúdo. */
+    this.innerHTML = '';
+    this.appendChild(iframe);
+    this.style.cursor = 'default';
+  }, {once:true});
+});
+</script></body></html>
