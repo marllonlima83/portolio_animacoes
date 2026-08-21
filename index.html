@@ -21,6 +21,35 @@ main{padding-bottom:70px} .level{margin:24px 0;padding:30px;border:1px solid var
 footer{padding:0 0 38px;text-align:center;color:var(--muted);font-size:.86rem}
 @media(max-width:850px){.grid,.grid.three{grid-template-columns:1fr}.grid.one{grid-template-columns:1fr}.level{padding:22px}}
 @media(max-width:520px){.container{width:min(100% - 24px,1180px)}.hero{margin-top:18px;border-radius:22px}.level-head{align-items:flex-start;flex-direction:column}.video-info{align-items:flex-start;flex-direction:column}}
+
+/* Mantém o player exatamente no mesmo tamanho da thumbnail */
+.video-wrap {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  overflow: hidden !important;
+  background: #000 !important;
+}
+.video-wrap iframe {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  border: 0 !important;
+  display: block !important;
+}
+.video-wrap img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
 </style></head>
 <body>
 <header class="hero container"><img src="topo.png" alt="Márlon Lima — Designer Multimídia"></header>
